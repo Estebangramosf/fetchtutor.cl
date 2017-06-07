@@ -1,4 +1,14 @@
 {
   "/js/app.js": "/js/app.js",
-  "/css/app.css": "/css/app.css"
+  "/css/app.css": "/css/app.css",
+  "/mix.js": "/mix.js",
+  "/js/UserController.js": "/js/UserController.js",
+  "/js/api/controllers/UserController.js": "/js/api/controllers/UserController.js",
+  "/js/api/controllers/*.js": "/js/api/controllers/*.js",
+  "/js/api/controllers/users/ListController.js": "/js/api/controllers/users/ListController.js",
+  "/js/components/users/List.js": "/js/components/users/List.js",
+  "/js/components/users/Edit.js": "/js/components/users/Edit.js",
+  "/js/components/users/Create.js": "/js/components/users/Create.js",
+  "/js/api/controllers/users/EditController.js": "/js/api/controllers/users/EditController.js",
+  "/js/api/controllers/users/CreateController.js": "/js/api/controllers/users/CreateController.js"
 }
