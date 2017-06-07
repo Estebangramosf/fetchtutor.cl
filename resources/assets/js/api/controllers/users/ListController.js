@@ -51,7 +51,7 @@ let Paginators = require('../../../components/paginators/Paginators.vue');
 
 // Start app
 let Index = new Vue({
-  el: '#Index',
+  el: '#List',
   data(){
     return {
       someData:'',

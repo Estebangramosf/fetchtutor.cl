@@ -20353,7 +20353,7 @@ var Paginators = __webpack_require__(65);
 
 // Start app
 var Index = new Vue({
-  el: '#Index',
+  el: '#List',
   data: function data() {
     return {
       someData: '',
