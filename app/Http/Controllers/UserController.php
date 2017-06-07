@@ -12,9 +12,7 @@ class UserController extends Controller
 {
 
     private $user;
-    private $churches;
     public function __construct(){
-
     }
 
     # method all() to return users via ajax-vue request

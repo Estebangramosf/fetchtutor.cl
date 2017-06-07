@@ -1,15 +1,13 @@
 <script>
    export default {
-      props:['churches'],
+      props:[''],
       name:'users-create',
       data () {
          return {
-            church:'',
             newuser:{
                name:'',
                email:'',
                role:'',
-               church_id:'',
                password:'',
             },
             editable:true,
@@ -43,7 +41,6 @@
             this.$http.post('/users', {user:this.newuser}).then(response => {
                // get body json data
                //window.location.href = '/users';
-               this.church = this.findById(this.churches,this.newuser.church_id);
                this.newuser = response.body.rid;
                this.editable = false;
                console.log('success');
@@ -138,25 +135,6 @@
                   </a>
                </div><!-- .media-left -->
                <div class="media-body">
-
-                  <!-- Church input -->
-                  <div v-show="church.name && !editable">
-                     <label>Miembro de la iglesia:</label> {{church.name}}
-                  </div>
-                  <transition name="bounce">
-                     <div v-show="editable">
-                        <label>Seleccione iglesia:</label> 
-                        <div>
-                           <select name="church_name" id="church_name" required="required" v-model="newuser.church_id" 
-                              class="form-control input-sm">
-                              <option value="">Seleccione ..</option>
-                              <option v-for="church in churches" :value="church.id">{{church.name}}</option>
-                           </select>
-                        </div>
-                        <br>
-                     </div>
-                  </transition>
-                  <br /><br />
 
                   <button v-show="editable" type="submit" class="btn btn-success btn-sm">
                      Crear usuario

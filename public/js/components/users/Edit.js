@@ -183,18 +183,18 @@ module.exports = function() {
 
 /***/ }),
 
-/***/ 14:
+/***/ 16:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(25)
+__webpack_require__(27)
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(18),
+  __webpack_require__(20),
   /* template */
-  __webpack_require__(23),
+  __webpack_require__(25),
   /* scopeId */
   "data-v-c423b618",
   /* cssModules */
@@ -219,80 +219,6 @@ if (false) {(function () {
 
 module.exports = Component.exports
 
-
-/***/ }),
-
-/***/ 18:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-   value: true
-});
-exports.default = {
-   props: ['user', 'user_church', 'churches'],
-   name: 'users-edit',
-   data: function data() {
-      return {
-         editable: true
-      };
-   },
-   ready: function ready() {},
-   created: function created() {},
-
-   watch: {},
-   methods: {
-      findById: function findById(items, id) {
-         for (var i in items) {
-            if (items[i].id == id) {
-               return items[i];
-            }
-         }
-         return null;
-      },
-      editUser: function editUser() {
-         return this.editable = true;
-      },
-      saveUser: function saveUser() {
-         var _this = this;
-
-         Vue.http.headers.common['X-CSRF-TOKEN'] = $('#_token').val();
-         //Se realiza reemplazo manual en edicion rapida ya que no es amigable hacer el v-model con los campos
-         this.user_church = this.findById(this.churches, this.user.church_id);
-         //Vue.http.options.emulateJSON = true;
-         //Vue.http.options.emulateHTTP = true;
-         //this.$http.post('/users).then(response => {
-         this.$http.put('/users/' + this.user.id, { user: this.user }).then(function (response) {
-            // get body json data
-            _this.editable = false;
-            console.log('success');
-            console.log(response);
-         }, function (response) {
-            // error callback
-            console.log('failed');
-            console.log(response);
-         });
-      },
-      deleteUser: function deleteUser() {
-         Vue.http.headers.common['X-CSRF-TOKEN'] = $('#_token').val();
-         //Vue.http.options.emulateJSON = true;
-         //Vue.http.options.emulateHTTP = true;
-         //this.$http.post('/users).then(response => {
-         this.$http.delete('/users/' + this.user.id, { user: this.user }).then(function (response) {
-            // get body json data
-            //window.location.href = '/users';
-            console.log('success');
-            console.log(response);
-         }, function (response) {
-            // error callback
-            console.log('failed');
-            console.log(response);
-         });
-      }
-   }
-};
 
 /***/ }),
 
@@ -521,12 +447,85 @@ function applyToTag (styleElement, obj) {
 /***/ 20:
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+   value: true
+});
+exports.default = {
+   props: ['user'],
+   name: 'users-edit',
+   data: function data() {
+      return {
+         editable: true
+      };
+   },
+   ready: function ready() {},
+   created: function created() {},
+
+   watch: {},
+   methods: {
+      findById: function findById(items, id) {
+         for (var i in items) {
+            if (items[i].id == id) {
+               return items[i];
+            }
+         }
+         return null;
+      },
+      editUser: function editUser() {
+         return this.editable = true;
+      },
+      saveUser: function saveUser() {
+         var _this = this;
+
+         Vue.http.headers.common['X-CSRF-TOKEN'] = $('#_token').val();
+         //Se realiza reemplazo manual en edicion rapida ya que no es amigable hacer el v-model con los campos
+         //Vue.http.options.emulateJSON = true;
+         //Vue.http.options.emulateHTTP = true;
+         //this.$http.post('/users).then(response => {
+         this.$http.put('/users/' + this.user.id, { user: this.user }).then(function (response) {
+            // get body json data
+            _this.editable = false;
+            console.log('success');
+            console.log(response);
+         }, function (response) {
+            // error callback
+            console.log('failed');
+            console.log(response);
+         });
+      },
+      deleteUser: function deleteUser() {
+         Vue.http.headers.common['X-CSRF-TOKEN'] = $('#_token').val();
+         //Vue.http.options.emulateJSON = true;
+         //Vue.http.options.emulateHTTP = true;
+         //this.$http.post('/users).then(response => {
+         this.$http.delete('/users/' + this.user.id, { user: this.user }).then(function (response) {
+            // get body json data
+            //window.location.href = '/users';
+            console.log('success');
+            console.log(response);
+         }, function (response) {
+            // error callback
+            console.log('failed');
+            console.log(response);
+         });
+      }
+   }
+};
+
+/***/ }),
+
+/***/ 22:
+/***/ (function(module, exports, __webpack_require__) {
+
 exports = module.exports = __webpack_require__(1)();
 exports.push([module.i, "\n.fade-enter-active[data-v-c423b618], .fade-leave-active[data-v-c423b618] {\n   transition: opacity .5s\n}\n.fade-enter[data-v-c423b618], .fade-leave-to[data-v-c423b618] {\n   opacity: 0\n}\n.bounce-enter-active[data-v-c423b618] {\n   -webkit-animation: bounce-in .3s;\n           animation: bounce-in .3s;\n}\n.bounce-leave-active[data-v-c423b618] {\n   -webkit-animation: bounce-in .2s reverse;\n           animation: bounce-in .2s reverse;\n}\n@-webkit-keyframes bounce-in {\n0% {\n      -webkit-transform: scale(0);\n              transform: scale(0);\n}\n50% {\n      -webkit-transform: scale(1);\n              transform: scale(1);\n}\n100% {\n      -webkit-transform: scale(1);\n              transform: scale(1);\n}\n}\n@keyframes bounce-in {\n0% {\n      -webkit-transform: scale(0);\n              transform: scale(0);\n}\n50% {\n      -webkit-transform: scale(1);\n              transform: scale(1);\n}\n100% {\n      -webkit-transform: scale(1);\n              transform: scale(1);\n}\n}\n\n", ""]);
 
 /***/ }),
 
-/***/ 23:
+/***/ 25:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -699,64 +698,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })])]), _vm._v(" "), _c('div', {
     staticClass: "media-body"
-  }, [_c('div', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.user_church),
-      expression: "user_church"
-    }]
-  }, [_c('label', [_vm._v("Miembro de la iglesia:")]), _vm._v(" " + _vm._s(_vm.user.church.name) + "\n                     "), _c('transition', {
-    attrs: {
-      "name": "bounce"
-    }
-  }, [_c('select', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.editable),
-      expression: "editable"
-    }, {
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.user.church_id),
-      expression: "user.church_id"
-    }],
-    staticClass: "form-control input-sm",
-    attrs: {
-      "required": "required",
-      "name": "church_name",
-      "id": "church_name"
-    },
-    on: {
-      "change": function($event) {
-        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
-          return o.selected
-        }).map(function(o) {
-          var val = "_value" in o ? o._value : o.value;
-          return val
-        });
-        _vm.user.church_id = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-      }
-    }
-  }, _vm._l((_vm.churches), function(church) {
-    return _c('option', {
-      domProps: {
-        "value": church.id
-      }
-    }, [_vm._v(_vm._s(church.name))])
-  }))]), _vm._v(" "), _c('br'), _vm._v(" "), _c('b', [_vm._v("Descripcion")]), _vm._v(": " + _vm._s(_vm._f("truncate")(_vm.user_church.description, 20)) + " "), _c('br'), _vm._v(" "), _c('span', {
-    staticStyle: {
-      "float": "right"
-    }
-  }, [_c('b', [_vm._v("Ciudad")]), _vm._v(": " + _vm._s(_vm.user_church.city))])], 1), _vm._v(" "), _c('span', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (!_vm.user_church),
-      expression: "!user_church"
-    }]
-  }, [_c('h5', [_vm._v("No pertenece a ninguna iglesia")])]), _vm._v(" "), _c('br'), _c('br'), _vm._v(" "), _c('transition', {
+  }, [_c('transition', {
     attrs: {
       "name": "bounce"
     }
@@ -822,13 +764,13 @@ if (false) {
 
 /***/ }),
 
-/***/ 25:
+/***/ 27:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(20);
+var content = __webpack_require__(22);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -886,7 +828,7 @@ module.exports = function listToStyles (parentId, list) {
 /***/ 75:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(14);
+module.exports = __webpack_require__(16);
 
 
 /***/ })

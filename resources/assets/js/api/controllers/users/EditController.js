@@ -1,4 +1,5 @@
 // Imports requeribles
+import VueResource from 'vue-resource';
 import { _ , range } from 'lodash';
 import { Vue2Filters } from 'vue2-filters';
 // Components requeribles
@@ -13,10 +14,7 @@ let Edit = new Vue({
    data(){
       return {
          users:{},
-         churches:{},
          user:'',
-         user_church:'',
-         user_church_member:'',
       }
    },
    computed: { },
@@ -39,9 +37,6 @@ let Edit = new Vue({
          this.$http.get('/users/all/'+user_id+'/edit').then(response => {
             // get body json data
             this.user = response.body.user;
-            this.user_church = response.body.user_church;
-            this.churches = response.body.churches;
-            this.user_church_member = this.user_church.name;
             //console.log(response);
          }, response => {
             console.log(response);

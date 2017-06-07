@@ -46,8 +46,8 @@
 								<h4>
 									Listado de Usuarios <span style="float: right;">({{$users}} Usuarios registrados)</span>
 									{{--
-									<a href="{{url('/roles/create')}}" style="float:right;" class="btn btn-success btn-sm">
-										Crear nuevo rol
+									<a href="{{url('/users/create')}}" style="float:right;" class="btn btn-success btn-sm">
+										Crear nuevo usuario
 									</a>
 									--}}
 								</h4>
@@ -58,22 +58,19 @@
 								<!-- Input for write term to search -->
 								<input type="text" class="form-control" placeholder="Buscar ..." v-model="filterTerm" id="filterTerm">
 
-
-
 								<!-- paginators component  -->
 								<div class="text-center">
 									<paginators :pagination="pagination" @navigate="navigate"></paginators>
-								</div>
+								</div><!-- .text-center -->
+
 								<div class="row">
 									<!-- Here can be add all filters that u need, in v-for -->
 									<!-- users-list component -->
-									<!--<transition-group name="flip-list" tag="ul">-->
-										<users-list
-											v-for="user in filterBy(users, filterTerm, 'name', 'role', 'email')"
-											:user="user"
-											v-bind:key="user">
-										</users-list>
-									<!--</transition-group>-->
+									<users-list
+										v-for="user in filterBy(users, filterTerm, 'name', 'role', 'email')"
+										:user="user"
+										v-bind:key="user">
+									</users-list>
 									<input type="hidden" name="_token" id="_token" value="{{csrf_token()}}">
 								</div>
 
@@ -87,8 +84,6 @@
 						</div><!-- .list-group parent users -->
 					</div><!-- .col-* parent -->
 
-					{{--
-					DEPRECATED 25-12-2016
 					<!-- Advertisement column, or sugests -->
 					<div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
 						<div class="list-group">
@@ -99,8 +94,7 @@
 								Sugerencias, relateds, etc.
 							</div><!-- -->
 						</div><!-- -->
-					</div><!-- -->
-					--}}
+					</div><!-- .col-* -->
 
 				</div><!-- .row parent -->
 			</div><!-- #UserController app for vue -->

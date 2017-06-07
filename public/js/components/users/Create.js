@@ -395,59 +395,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   })])]), _vm._v(" "), _c('div', {
     staticClass: "media-body"
-  }, [_c('div', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.church.name && !_vm.editable),
-      expression: "church.name && !editable"
-    }]
-  }, [_c('label', [_vm._v("Miembro de la iglesia:")]), _vm._v(" " + _vm._s(_vm.church.name) + "\n               ")]), _vm._v(" "), _c('transition', {
-    attrs: {
-      "name": "bounce"
-    }
-  }, [_c('div', {
-    directives: [{
-      name: "show",
-      rawName: "v-show",
-      value: (_vm.editable),
-      expression: "editable"
-    }]
-  }, [_c('label', [_vm._v("Seleccione iglesia:")]), _vm._v(" "), _c('div', [_c('select', {
-    directives: [{
-      name: "model",
-      rawName: "v-model",
-      value: (_vm.newuser.church_id),
-      expression: "newuser.church_id"
-    }],
-    staticClass: "form-control input-sm",
-    attrs: {
-      "name": "church_name",
-      "id": "church_name",
-      "required": "required"
-    },
-    on: {
-      "change": function($event) {
-        var $$selectedVal = Array.prototype.filter.call($event.target.options, function(o) {
-          return o.selected
-        }).map(function(o) {
-          var val = "_value" in o ? o._value : o.value;
-          return val
-        });
-        _vm.newuser.church_id = $event.target.multiple ? $$selectedVal : $$selectedVal[0]
-      }
-    }
-  }, [_c('option', {
-    attrs: {
-      "value": ""
-    }
-  }, [_vm._v("Seleccione ..")]), _vm._v(" "), _vm._l((_vm.churches), function(church) {
-    return _c('option', {
-      domProps: {
-        "value": church.id
-      }
-    }, [_vm._v(_vm._s(church.name))])
-  })], 2)]), _vm._v(" "), _c('br')])]), _vm._v(" "), _c('br'), _c('br'), _vm._v(" "), _c('button', {
+  }, [_c('button', {
     directives: [{
       name: "show",
       rawName: "v-show",
@@ -502,7 +450,7 @@ if (false) {
 
 /***/ }),
 
-/***/ 12:
+/***/ 13:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
@@ -798,7 +746,7 @@ module.exports = __webpack_require__(8);
 
 
 /* styles */
-__webpack_require__(12)
+__webpack_require__(13)
 
 var Component = __webpack_require__(0)(
   /* script */
@@ -842,16 +790,14 @@ Object.defineProperty(exports, "__esModule", {
    value: true
 });
 exports.default = {
-   props: ['churches'],
+   props: [''],
    name: 'users-create',
    data: function data() {
       return {
-         church: '',
          newuser: {
             name: '',
             email: '',
             role: '',
-            church_id: '',
             password: ''
          },
          editable: true
@@ -886,7 +832,6 @@ exports.default = {
          this.$http.post('/users', { user: this.newuser }).then(function (response) {
             // get body json data
             //window.location.href = '/users';
-            _this.church = _this.findById(_this.churches, _this.newuser.church_id);
             _this.newuser = response.body.rid;
             _this.editable = false;
             console.log('success');

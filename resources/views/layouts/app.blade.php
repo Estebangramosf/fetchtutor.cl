@@ -37,7 +37,8 @@
             font-weight: 100;
         }
         body {
-            font-family: Coolvetica;
+            font-family: 'Lato';
+            font-weight: 350;
         }
     </style>
     <style>

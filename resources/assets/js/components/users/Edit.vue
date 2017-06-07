@@ -1,6 +1,6 @@
 <script>
    export default {
-      props:['user','user_church','churches'],
+      props:['user'],
       name:'users-edit',
       data () {
          return {
@@ -28,7 +28,6 @@
          saveUser: function () {
             Vue.http.headers.common['X-CSRF-TOKEN'] = $('#_token').val();
             //Se realiza reemplazo manual en edicion rapida ya que no es amigable hacer el v-model con los campos
-            this.user_church = this.findById(this.churches,this.user.church_id);
             //Vue.http.options.emulateJSON = true;
             //Vue.http.options.emulateHTTP = true;
             //this.$http.post('/users).then(response => {
@@ -134,21 +133,6 @@
                   </div><!-- .media-left -->
 
                   <div class="media-body">
-
-                     <!-- Church input -->
-                     <div v-show="user_church">
-                        <label>Miembro de la iglesia:</label> {{user.church.name}}
-                        <transition name="bounce">
-                           <select v-show="editable" required="required" name="church_name" id="church_name" v-model="user.church_id" class="form-control input-sm">
-                              <option v-for="church in churches" :value="church.id">{{church.name}}</option>
-                           </select>
-                        </transition>
-                        <br>
-                        <b>Descripcion</b>: {{user_church.description | truncate(20)}} <br>
-                        <span style="float:right;"><b>Ciudad</b>: {{user_church.city}}</span>
-                     </div>
-                     <span v-show="!user_church"><h5>No pertenece a ninguna iglesia</h5></span>
-                     <br /><br />
 
                      <transition name="bounce">
                         <button v-show="editable" type="submit" class="btn btn-success btn-sm">

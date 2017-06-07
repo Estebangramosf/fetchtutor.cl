@@ -1,4 +1,5 @@
 // Imports requeribles
+import VueResource from 'vue-resource';
 import { _ , range } from 'lodash';
 import { Vue2Filters } from 'vue2-filters';
 
@@ -9,15 +10,13 @@ let UsersCreate = require('../../../components/users/Create.vue');
 let Create = new Vue({
    el: '#Create',
    data(){
-      return {
-         churches:{},
+      return {         
          users:"{}",
          user:'',               
          newuser:{
             name:'',
             email:'',
             role:'',
-            church_id:'',
             password:'',
          },
       }

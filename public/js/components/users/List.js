@@ -183,18 +183,18 @@ module.exports = function() {
 
 /***/ }),
 
-/***/ 15:
+/***/ 17:
 /***/ (function(module, exports, __webpack_require__) {
 
 
 /* styles */
-__webpack_require__(26)
+__webpack_require__(28)
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(19),
+  __webpack_require__(21),
   /* template */
-  __webpack_require__(24),
+  __webpack_require__(26),
   /* scopeId */
   "data-v-e2b404f0",
   /* cssModules */
@@ -222,7 +222,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 17:
+/***/ 19:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -279,94 +279,6 @@ exports.default = {
 			);
 		}
 
-	}
-};
-
-/***/ }),
-
-/***/ 19:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-	value: true
-});
-//
-
-/*
-	import VueRouter from 'vue-router';
-	Vue.use(VueRouter);
-
-const Foo = { template: '<div>foo</div>' };
-const Bar = { template: '<div>bar</div>' };
-const routes = [
-  { path: '/foo', component: Foo },
-  { path: '/bar', component: Bar }
-];
-const router = new VueRouter({
-  routes // short for routes: routes
-});
-const app = new Vue({
-  router
-}).$mount('#UserController');	
-		
-	var router = new VueRouter({
-		history: false
-	});
-
-	router.map({
-	  '/users/:user.id': {
-	    component: {
-	      template: 'User ID is {{$route.params.user.id}}'     
-	    }
-	  }
-	});
-	var App = Vue.extend();
-	router.start(App, '#UserController');	
-
-	const UserController = new Vue({
-	  router
-	}).$mount('#UserController');
-
-*/
-var helper = __webpack_require__(22);
-exports.default = {
-	props: ['user'],
-	name: 'users-list',
-	data: function data() {
-		return {
-			editable: false
-		};
-	},
-	ready: function ready() {},
-	created: function created() {},
-
-	filters: {},
-	methods: {
-		editUser: function editUser() {
-			//console.log(this.editable);
-			return this.editable = !this.editable;
-		},
-		saveUser: function saveUser() {
-			this.editUser(); // To change edit status
-			Vue.http.headers.common['X-CSRF-TOKEN'] = $('#_token').val();
-			//Se realiza reemplazo manual en edicion rapida ya que no es amigable hacer el v-model con los campos
-
-			//Vue.http.options.emulateJSON = true;
-			//Vue.http.options.emulateHTTP = true;
-			//this.$http.post('/users).then(response => {
-			this.$http.put('/users/' + this.user.id, { user: this.user }).then(function (response) {
-				// get body json data
-				console.log('success');
-				console.log(response);
-			}, function (response) {
-				// error callback
-				console.log('failed');
-				console.log(response);
-			});
-		}
 	}
 };
 
@@ -597,17 +509,105 @@ function applyToTag (styleElement, obj) {
 /***/ 21:
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+//
+
+/*
+	import VueRouter from 'vue-router';
+	Vue.use(VueRouter);
+
+const Foo = { template: '<div>foo</div>' };
+const Bar = { template: '<div>bar</div>' };
+const routes = [
+  { path: '/foo', component: Foo },
+  { path: '/bar', component: Bar }
+];
+const router = new VueRouter({
+  routes // short for routes: routes
+});
+const app = new Vue({
+  router
+}).$mount('#UserController');	
+		
+	var router = new VueRouter({
+		history: false
+	});
+
+	router.map({
+	  '/users/:user.id': {
+	    component: {
+	      template: 'User ID is {{$route.params.user.id}}'     
+	    }
+	  }
+	});
+	var App = Vue.extend();
+	router.start(App, '#UserController');	
+
+	const UserController = new Vue({
+	  router
+	}).$mount('#UserController');
+
+*/
+var helper = __webpack_require__(24);
+exports.default = {
+	props: ['user'],
+	name: 'users-list',
+	data: function data() {
+		return {
+			editable: false
+		};
+	},
+	ready: function ready() {},
+	created: function created() {},
+
+	filters: {},
+	methods: {
+		editUser: function editUser() {
+			//console.log(this.editable);
+			return this.editable = !this.editable;
+		},
+		saveUser: function saveUser() {
+			this.editUser(); // To change edit status
+			Vue.http.headers.common['X-CSRF-TOKEN'] = $('#_token').val();
+			//Se realiza reemplazo manual en edicion rapida ya que no es amigable hacer el v-model con los campos
+
+			//Vue.http.options.emulateJSON = true;
+			//Vue.http.options.emulateHTTP = true;
+			//this.$http.post('/users).then(response => {
+			this.$http.put('/users/' + this.user.id, { user: this.user }).then(function (response) {
+				// get body json data
+				console.log('success');
+				console.log(response);
+			}, function (response) {
+				// error callback
+				console.log('failed');
+				console.log(response);
+			});
+		}
+	}
+};
+
+/***/ }),
+
+/***/ 23:
+/***/ (function(module, exports, __webpack_require__) {
+
 exports = module.exports = __webpack_require__(1)();
 exports.push([module.i, "\n.fade-enter-active[data-v-e2b404f0], .fade-leave-active[data-v-e2b404f0] {\n\ttransition: opacity .5s\n}\n.fade-enter[data-v-e2b404f0], .fade-leave-to[data-v-e2b404f0] {\n\topacity: 0\n}\n.bounce-enter-active[data-v-e2b404f0] {\n\t-webkit-animation: bounce-in .3s;\n\t        animation: bounce-in .3s;\n}\n.bounce-leave-active[data-v-e2b404f0] {\n\t-webkit-animation: bounce-in .2s reverse;\n\t        animation: bounce-in .2s reverse;\n}\n@-webkit-keyframes bounce-in {\n0% {\n\t\t-webkit-transform: scale(0);\n\t\t        transform: scale(0);\n}\n50% {\n\t\t-webkit-transform: scale(1);\n\t\t        transform: scale(1);\n}\n100% {\n\t\t-webkit-transform: scale(1);\n\t\t        transform: scale(1);\n}\n}\n@keyframes bounce-in {\n0% {\n\t\t-webkit-transform: scale(0);\n\t\t        transform: scale(0);\n}\n50% {\n\t\t-webkit-transform: scale(1);\n\t\t        transform: scale(1);\n}\n100% {\n\t\t-webkit-transform: scale(1);\n\t\t        transform: scale(1);\n}\n}\n.flip-list-move[data-v-e2b404f0] {\n\ttransition: -webkit-transform 1s;\n\ttransition: transform 1s;\n\ttransition: transform 1s, -webkit-transform 1s;\n}\n.wrap[data-v-e2b404f0] {\n  height: 80vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  overflow-y: scroll;\n}\n.wrap-long-vertical[data-v-e2b404f0] {\n  height: 100vh;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  overflow-y: scroll;\n}\n", ""]);
 
 /***/ }),
 
-/***/ 22:
+/***/ 24:
 /***/ (function(module, exports, __webpack_require__) {
 
 var Component = __webpack_require__(0)(
   /* script */
-  __webpack_require__(17),
+  __webpack_require__(19),
   /* template */
   null,
   /* scopeId */
@@ -636,7 +636,7 @@ module.exports = Component.exports
 
 /***/ }),
 
-/***/ 24:
+/***/ 26:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
@@ -848,13 +848,13 @@ if (false) {
 
 /***/ }),
 
-/***/ 26:
+/***/ 28:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(21);
+var content = __webpack_require__(23);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -912,7 +912,7 @@ module.exports = function listToStyles (parentId, list) {
 /***/ 76:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(15);
+module.exports = __webpack_require__(17);
 
 
 /***/ })

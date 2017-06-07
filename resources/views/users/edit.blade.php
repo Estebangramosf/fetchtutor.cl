@@ -45,7 +45,7 @@
 								<!-- Primera seccion -->
 								<!-- Declaracion del formulario para editar usuario -->
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-									<users-edit :user="user" :user_church="user_church" :churches="churches"></users-edit>
+									<users-edit :user="user"></users-edit>
 									<input type="hidden" name="_token" id="_token" value="{{csrf_token()}}">
 								</div><!-- -->
 							</div><!-- /.row -->
@@ -62,7 +62,7 @@
 								</ol>
 								<!-- Segunda seccion -->
 								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-									<users-create :churches="churches"></users-create>
+									<users-create></users-create>
 								</div><!-- -->
 							</div><!-- /.row -->
 						</div><!-- Segunda seccion -->
@@ -77,6 +77,5 @@
 
 	<!-- Section to push view scripts -->
 @section('VueFrontend')
-	{!!Html::script('js/vue-resource.min.js')!!}
-	{!!Html::script('js/app/src/api/controllers/users/UserEditController.js')!!}
+	{!!Html::script('js/api/controllers/users/EditController.js')!!}
 @endsection
