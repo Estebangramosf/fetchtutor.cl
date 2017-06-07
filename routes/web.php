@@ -18,6 +18,8 @@ Route::get('/', function () {
 
 
 //URL::forceSchema("https");
+
+/* ###RUTAS REUTILIZABLES
 Route::get('quienessomos', 'FrontController@QuienesSomos');
 Route::get('/', 'HomeController@index');
 Route::get('test', function(){
@@ -26,10 +28,11 @@ Route::get('test', function(){
 Route::resource('posts', 'PostController');
 Route::resource('multimedia', 'MultimediaController');
 Route::resource('churches', 'ChurchController');
+*/
 
 //Route::group(['middleware'=>'httpsprotocol'], function(){
     //Route::post('login', ['uses'=>'AuthController@login','https'=>true]);
-    Route::auth();
+//Route::auth();
 //});
 
 //Route::get('test', 'HomeController@test');
@@ -45,7 +48,7 @@ Route::get('vue3', function () {
 });
 */
 //Route::get('dashboard', 'UserController@dashboard');
-
+/* ###RUTAS REUTILIZABLES
 Route::resource('admins', 'AdminController');
 
 #Admin user routes
@@ -59,12 +62,13 @@ Route::resource('moderators', 'ModeratorController');
 //Route::resource('comments', 'CommentController');
 Route::resource('posts.comments', 'CommentController');
 Route::resource('multimedia.comments', 'MultimediaCommentController');
-
+*/
 /*
 Route::resource('roles', 'RoleController');
 Route::resource('galleries', 'GalleryController');
 */
 
+/* ###RUTAS REUTILIZABLES
 Route::group(['middleware' => 'auth'], function () {
     //Route::get('/', function ()    {
         // Uses Auth Middleware
@@ -78,7 +82,14 @@ Route::group(['middleware' => 'auth'], function () {
         // Uses Auth Middleware
     });
 });
+*/
 
 Auth::routes();
-
+Route::get('/', function () {
+    return view('welcome');
+});
 Route::get('/home', 'HomeController@index')->name('home');
+#Admin user routes
+Route::get('users/all', 'UserController@all');
+Route::get('users/all/{id}/edit', 'UserController@allEdit');
+Route::resource('/users','UserController');

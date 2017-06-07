@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 74);
+/******/ 	return __webpack_require__(__webpack_require__.s = 76);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -795,11 +795,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     attrs: {
       "value": "user"
     }
-  }, [_vm._v("User")])])])], 1)]), _vm._v(" "), _c('hr'), _vm._v(" "), (_vm.user.church) ? _c('div', [_c('label', [_vm._v("Miembro de la iglesia:")]), _vm._v(" " + _vm._s(_vm.user.church.name) + "\n\t\t\t\t\t\t"), _c('br'), _vm._v(" "), _c('b', [_vm._v("Descripcion")]), _vm._v(": " + _vm._s(_vm._f("truncate")(_vm.user.church.description, 20)) + " "), _c('br'), _vm._v(" "), _c('span', {
-    staticStyle: {
-      "float": "right"
-    }
-  }, [_c('b', [_vm._v("Ciudad")]), _vm._v(": " + _vm._s(_vm.user.church.city))])]) : _c('span', [_c('h5', [_vm._v("No pertenece a ninguna iglesia")])]), _vm._v(" "), _c('br'), _c('br'), _vm._v(" "), _c('transition', {
+  }, [_vm._v("User")])])])], 1)]), _vm._v(" "), _c('transition', {
     attrs: {
       "name": "bounce"
     }
@@ -913,7 +909,7 @@ module.exports = function listToStyles (parentId, list) {
 
 /***/ }),
 
-/***/ 74:
+/***/ 76:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(15);

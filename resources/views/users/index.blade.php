@@ -69,9 +69,8 @@
 									<!-- users-list component -->
 									<!--<transition-group name="flip-list" tag="ul">-->
 										<users-list
-											v-for="user in filterBy(users, filterTerm, 'name', 'role', 'email', 'church.name', 'church.city', 'church.description')"
+											v-for="user in filterBy(users, filterTerm, 'name', 'role', 'email')"
 											:user="user"
-											:church="user.church"
 											v-bind:key="user">
 										</users-list>
 									<!--</transition-group>-->
@@ -113,6 +112,5 @@
 
 <!-- Section to push view scripts -->
 @section('VueFrontend')
-	{!!Html::script('js/vue-resource.min.js')!!}
-	{!!Html::script('js/app/src/api/controllers/users/UserController.js')!!}
+	{!!Html::script('js/api/controllers/users/ListController.js')!!}
 @endsection

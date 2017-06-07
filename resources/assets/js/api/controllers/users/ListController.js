@@ -38,6 +38,7 @@ Vue.http.headers.common['X-CSRF-TOKEN'] = $('#_token').attr('value');//Laravel.c
 //import VueResource from 'vue-resource';
 
 // Imports requeribles
+import VueResource from 'vue-resource';
 import { _ , range } from 'lodash';
 import { Vue2Filters } from 'vue2-filters';
 // Components requeribles

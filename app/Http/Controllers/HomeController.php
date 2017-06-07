@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests;
+use App\Post;
+use App\Multimedia;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    private $posts;
+    private $multimedias;
     public function __construct()
     {
         $this->middleware('auth');

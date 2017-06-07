@@ -134,17 +134,6 @@ const app = new Vue({
 							</div><!-- .media-body -->
 						</div><!-- media -->
 
-						<hr>
-						<!-- Field user church id -->
-						<div v-if="user.church">
-							<label>Miembro de la iglesia:</label> {{user.church.name}}
-							<br>
-							<b>Descripcion</b>: {{user.church.description | truncate(20)}} <br>
-							<span style="float:right;"><b>Ciudad</b>: {{user.church.city}}</span>
-						</div>
-						<span v-else><h5>No pertenece a ninguna iglesia</h5></span>
-						<br /><br />
-
 						<!-- Save button -->
 						<transition name="bounce">
 							<button v-show="editable" type="submit" class="btn btn-success btn-sm">
