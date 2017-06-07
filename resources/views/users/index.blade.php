@@ -15,7 +15,7 @@
 
 					<!-- Page Heading -->
 					<div class="row">
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 							<h1 class="page-header">
 								<!-- Admin -->
 								<small>Administrador de usuarios</small>
@@ -35,7 +35,7 @@
 					<div class="row">
 
 						<!-- Alert imports -->
-						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-9">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 							@include('alerts.allAlerts')
 						</div><!-- /Alerts imports -->
 
@@ -92,6 +92,7 @@
 								</div><!-- -->
 							</div><!-- -->
 						</div><!-- .col-* -->
+
 					</div><!-- .row parent -->
 				</div><!-- #ListController app for vue -->
 			</div>

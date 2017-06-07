@@ -34,6 +34,8 @@
 									<input type="hidden" name="_token" id="_token" value="{{csrf_token()}}">
 								</div><!-- -->
 							</div><!-- /.row -->
+
+							
 						</div><!-- Segunda seccion -->
 
 
