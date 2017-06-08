@@ -3,9 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests;
+use App\Deck;
+use App\Format;
+use Redirect;
+#use App\Http\Requests\MazosCreateRequest;
+#use App\Http\Requests\MazosUpdateRequest;
+use Illuminate\Support\Facades\Session;
+
 
 class DeckController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +26,14 @@ class DeckController extends Controller
      */
     public function index()
     {
-        //
+        $mazos = Deck::paginate(10);
+        return view('backend.mazos.index', compact('mazos'));
+    }
+
+
+    public function backendIndex(){
+        $mazos = Deck::paginate(10);
+        return view('backend.mazos.index', compact('mazos'));
     }
 
     /**
@@ -23,7 +43,9 @@ class DeckController extends Controller
      */
     public function create()
     {
-        //
+        $mazos = Deck::paginate(10);
+        $formatos = Format::lists('FTO_NOMBRE', 'FTO_ID');
+        return view('backend.mazos.agregar', compact('mazos','formatos'));
     }
 
     /**
@@ -34,7 +56,19 @@ class DeckController extends Controller
      */
     public function store(Request $request)
     {
-        //
+            $newMazo = new Deck();
+            $newMazo->MAZ_NOMBRE = $request['MAZ_NOMBRE'];
+            $newMazo->FTO_ID = $request['FTO_ID'];
+            $error = '';
+            try {
+                $newMazo->save();
+                $error = false;
+            } catch (Exception $ex) {
+                $error = true;
+                return $ex;
+            }
+            Session::flash('message','Mazo agregado con exito.');
+            return redirect::to('/mazos');  
     }
 
     /**
@@ -56,7 +90,9 @@ class DeckController extends Controller
      */
     public function edit($id)
     {
-        //
+        $mazo = Deck::find($id);
+        $formatos = Format::lists('FTO_NOMBRE', 'FTO_ID');
+        return view('backend.mazos.editar', compact('mazo','formatos'));
     }
 
     /**
@@ -68,7 +104,11 @@ class DeckController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $mazo = Deck::find($id);
+        $mazo->MAZ_NOMBRE = $request['MAZ_NOMBRE'];
+        $mazo->FTO_ID = $request['FTO_ID'];
+        $mazo->save();
+        return redirect::to('/mazos');
     }
 
     /**

@@ -102,4 +102,32 @@ Route::resource('/multimedia','MultimediaController');
 Route::resource('/multimedia.comments','MultimediaCommentController');
 
 
+####################################
+
+
 #Rutas Migracion Francisco
+
+#Route::resource('/', 'PaginaController');
+Route::resource('byformat', 'MazosController@index');
+Route::resource('listadomazos', 'MazosController@backendIndex');
+Route::resource('mazos', 'DeckController');
+Route::resource('jugadores', 'PlayerController');
+Route::resource('formatos', 'FormatosController');
+Route::resource('eventos', 'EventController');
+/*
+Route::get('participantes/{id}', [
+    'as'=>'participantes',
+    'uses'=>'EventosMazosController@participaEvento'
+]);
+ */
+Route::get('participantes/scoreparticipantes/{id}', 'EventosMazosController@createbyget');
+Route::get('participantes/editscoreparticipantes/{id}', 'EventosMazosController@editbyget');
+Route::resource('participantes', 'DeckEventController');
+Route::resource('getjugadoresbydci', 'JugadoresController@getjugadoresbydci');
+#Route::auth();
+#Route::get('/home', 'HomeController@index');
+Route::resource('lista', 'ListController');
+Route::resource('getcartasbyid', 'CardController@getcartasbyid');
+
+Route::get('formato/{id}', 'FrontController@getFormato');
+//Route::resource('index', 'PaginaController');

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Store;
+use App\Http\Requests;
 
 class StoreController extends Controller
 {
@@ -13,7 +15,8 @@ class StoreController extends Controller
      */
     public function index()
     {
-        //
+        $tiendas  = Store::paginate(2);
+        return view('frontend.tiendas', compact('tiendas'));
     }
 
     /**

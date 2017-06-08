@@ -3,9 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Format;
+use App\Http\Requests;
 
 class FormatController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +21,8 @@ class FormatController extends Controller
      */
     public function index()
     {
-        //
+        $formatos = Format::paginate(10);
+        return view('backend.formatos.index', compact('formatos'));
     }
 
     /**
