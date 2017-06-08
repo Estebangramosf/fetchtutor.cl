@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
-class MultimediaCommentContoller extends Controller
+class MultimediaCommentController extends Controller
 {
     public function index()
     {

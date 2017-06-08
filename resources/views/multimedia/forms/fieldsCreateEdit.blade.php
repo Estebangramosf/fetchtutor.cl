@@ -23,7 +23,7 @@
         //'pattern'=>'https?://www.youtube.+',
         //'pattern'=>'https?://www\.youtube.com\/watch+',
         'pattern'=>'http://www\.youtube\.com\/(.+)|https://www\.youtube\.com\/(.+)',
-        'required'=>'true',
+        'required'=>'required',
         'id'=>'youtube_link'])!!}
     </div><!-- /div .list-group-item -->
 
@@ -32,7 +32,7 @@
       {!!Form::text('title',null,
         ['class'=>'form-control',
         'placeholder'=>'Ingrese el titulo de contenido multimedia',
-        'required'=>'true',
+        'required'=>'required',
         'maxlength'=>'60'])!!}
     </div><!-- /div .list-group-item -->
 
@@ -42,7 +42,6 @@
         ['class'=>'form-control',
         'placeholder'=>'Ingrese descripción del contenido multimedia',
         'rows' => '5',
-        'required'=>'true',
         'maxlenght'=>'5000'])!!}
     </div><!-- /div .form-group .has-feedback .has-feedback-left -->
     <div class="form-group has-feedback has-feedback-left">

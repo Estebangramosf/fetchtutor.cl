@@ -7,14 +7,14 @@
 
         <!-- Page Heading -->
         <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <h1 class="page-header">
               Multimedia <small>Contenido público</small>
             </h1>
             <ol class="breadcrumb">
               <li class="active">
                 <i class="fa fa-dashboard"></i> Multimedia
-                @if(Auth::check()&&Auth::user()->role!='user'&&Auth::user()->role!='admin')
+                @if(Auth::check()&&Auth::user()->role!='user'/*&&Auth::user()->role!='admin'*/)
                   ·
                   <a class="btn-link" href="{{url('/multimedia/create')}}">
                     Nuevo contenido multimedia
@@ -28,11 +28,11 @@
 
         <div class="row">
 
-          <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+          <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9">
             @include('alerts.allAlerts')
           </div><!-- .col-xs-sm-md-lg-12 -->
 
-          <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+          <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9">
 
             @foreach($multimedias as $key => $multimedia)
               <div class="list-group">
@@ -136,7 +136,7 @@
                   Comentarios
 
                   <span style="float:right;">
-                    {{$count_comments = $multimedia->comments->count()}}
+                    {{$count_comments = $multimedia->multimedia_comments->count()}}
                     @if($count_comments>0)
                       <a href="{{url('/multimedia/'.$multimedia->id)}}">
                         · <small>Ver comentarios</small>
@@ -157,9 +157,7 @@
           {{$multimedias->render()}}
           </div><!-- .col-xs-sm-md-lg-12 -->
 
-          {{--
-          DEPRECATED 25-12-2016
-          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
+          <div class="col-xs-12 col-sm-12 col-md-4 col-lg-3">
             <div class="list-group">
               <div class="list-group-item">
                 Espacio publicitario
@@ -169,7 +167,6 @@
               </div><!-- -->
             </div><!-- -->
           </div><!-- -->
-          --}}
 
         </div><!-- -->
       </div><!-- -->

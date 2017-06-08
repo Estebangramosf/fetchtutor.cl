@@ -14,7 +14,7 @@
             <ol class="breadcrumb">
               <li class="active">
                 <i class="| fa-dashboard"></i> Lea, vea y comente, este es el listado de las publicaciones actuales. 
-                @if(Auth::check()&&Auth::user()->role!='user'&&Auth::user()->role!='admin')
+                @if(Auth::check()&&Auth::user()->role!='user'/*&&Auth::user()->role!='admin'*/)
                   ·
                   <a class="btn-link" href="{{url('/posts/create')}}">Nuevo post</a>
                 @endif

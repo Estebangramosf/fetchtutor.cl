@@ -681,14 +681,14 @@
                 url: {
                     required:true,
                     url:true,
-                    //pattern:'https?://www.youtube.+'
+                    pattern:'https?://www.youtube.+'
                 }
             }
         },
         messages: {
             youtube_link:{
                 url: 'Debe ingresar una url para el video',
-                //pattern: 'Ingrese el siguiente formato https://www.youtube.com/'
+                pattern: 'Ingrese el siguiente formato https://www.youtube.com/'
             }
         }
     });

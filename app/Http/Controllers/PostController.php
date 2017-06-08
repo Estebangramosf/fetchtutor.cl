@@ -58,18 +58,13 @@ class PostController extends Controller
     {
         try{
             $this->post = $request->user()->posts()->create($request->all());
-
+            /*
             $result = $this->validate($request, [
                 'title'=>'required',
                 'body'=>'required',
                 'image' => 'required|image|image-size:>900,>300|image-size:<1280,<720',
             ]);
-            if($result){
-                dd(true);
-            }else{
-                dd(false);
-            }
-
+            */
             PostImage::create([
               'image'=>$request->image,
               'user_id'=>$this->post->user_id,
@@ -86,7 +81,11 @@ class PostController extends Controller
             $this->post = Post::findOrFail($id);
             return view('posts.show',
                 ['post'=>$this->post, 'comments'=>$this->post->post_comments]);
-        }catch(Exception $ex){return dd($ex);}
+        }catch(ModelNotFoundException $ex){
+            Session::flash('message-error', 'El contenido buscado no existe.');
+            return Redirect::to('/posts');
+            return dd($ex);
+        }
     }
 
     public function edit($id)
@@ -98,7 +97,11 @@ class PostController extends Controller
                 return view('posts.show', ['post'=>$this->post, 'comments'=>$this->post->comments]);
             }
             return view('posts.edit', ['post' => $this->post]);
-        }catch(Exception $ex){return dd($ex);}
+        }catch(ModelNotFoundException $ex){
+            Session::flash('message-error', 'El contenido no existe.');
+            return Redirect::to('/posts');
+            return dd($ex);
+        }
     }
 
     public function update(Request $request, $id)
@@ -124,7 +127,11 @@ class PostController extends Controller
             $this->post->save();
             Session::flash('message', 'Post editado correctamente');
             return Redirect::to('/posts');
-        }catch(Exception $ex){return dd($ex);}
+        }catch(ModelNotFoundException $ex){
+            Session::flash('message-error', 'Contenido a modificar no existe.');
+            return Redirect::to('/posts');
+            return dd($ex);
+        }
     }
 
     public function destroy($id)
@@ -134,6 +141,10 @@ class PostController extends Controller
             $this->post->delete();
             Session::flash('message', 'Post eliminado correctamente');
             return Redirect::to('/posts');
-        }catch(Exception $ex){return dd($ex);}
+        }catch(ModelNotFoundException $ex){
+            Session::flash('message-error', 'El contenido especificado no existe.');
+            return Redirect::to('/posts');
+            return dd($ex);
+        }
     }
 }
