@@ -49,7 +49,7 @@
             //this.$http.post('/users).then(response => {
             this.$http.delete('/users/'+this.user.id, {user:this.user}).then(response => {
                // get body json data
-               //window.location.href = '/users';
+            window.location.href = '/users';
             console.log('success');
             console.log(response);
          }, response => {

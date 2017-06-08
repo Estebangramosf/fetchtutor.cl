@@ -7,7 +7,7 @@
 
         <!-- Page Heading -->
         <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <h1 class="page-header">
               Posts <small>Ver post · {{$post->title}}</small>
             </h1>
@@ -22,10 +22,10 @@
         <!-- /.row -->
 
         <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+          <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9">
             @include('alerts.allAlerts')
           </div><!-- -->
-          <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+          <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9">
 
             <div class="list-group">
               <div class="list-group-item">
@@ -38,6 +38,16 @@
               </div><!-- /div .list-group-item -->
 
               <div class="list-group-item">
+
+                  <a href="#!" class="thumbnail" style="padding:0px;">
+                    {{Html::image('/img/backgrounds/iconoCargando.gif',
+                      $alt="Photo", $attributes = array('style'=>
+                      'width:100%;height:100%;max-width:300px;max-height:300px;')) }}
+                    <div class="caption">
+                      Este post no tiene imagen.
+                    </div>
+                  </a>
+                  {{--
                   @foreach($post->image as $key => $image)
 
                     <a href="#!" class="thumbnail" style="padding:0px;">
@@ -57,6 +67,7 @@
                       </div>
                     </a>
                   @endif
+                  --}}
               </div>
               <div class="list-group-item">
                 <div class="form-group has-feedback has-feedback-left">
@@ -233,8 +244,6 @@
 
           </div><!-- -->
 
-          {{--
-          DEPRECATED 25-12-2016
           <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
             <div class="list-group">
               <div class="list-group-item">
@@ -245,7 +254,6 @@
               </div><!-- -->
             </div><!-- -->
           </div><!-- -->
-          --}}
 
         </div><!-- -->
       </div><!-- -->

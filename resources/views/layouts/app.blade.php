@@ -71,7 +71,7 @@
 
             {{-- Deprecated circle button
             <a class="navbar-brand page-scroll" href="#page-top">
-                <i class="fa fa-play-circle"></i> <span class="light" style="font-family: Coolvetica;">Iglesia Punto K</span>
+                <i class="fa fa-play-circle"></i> <span class="light" style="font-family: Coolvetica;">Fetch Tutor</span>
             </a>
             --}}
 
@@ -396,7 +396,7 @@
                             <i class="fa fa-fw fa-dashboard"></i>
                             <a href="{!! url('/') !!}">
                                 <div align="middle">
-                                    <small>IglesiaPuntoK.cl</small>
+                                    <small>FetchTutor.cl</small>
                                 </div>
                             </a>
                         </li>
@@ -570,14 +570,11 @@
 --}}
 
 <!-- Script for tooltips -->
-{{--
 <script>
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })
 </script>
---}}
-{{--
 <!-- Script for tibymce textarea edit with properties section -->
 {!!Html::script('js/tinymce/js/tinymce/tinymce.min.js')!!}
 <script>
@@ -696,6 +693,5 @@
         }
     });
 </script>
---}}
 </body>
 </html>

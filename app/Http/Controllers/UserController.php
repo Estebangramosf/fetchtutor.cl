@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
+
 class UserController extends Controller
 {
 
@@ -161,7 +162,7 @@ class UserController extends Controller
                 Session::flash('message-error', 'Usted no tiene privilegios para acceder a esta sección.');
                 return Redirect::to('/posts');
             }
-        }catch(Exception $e){return Redirect::to('/posts');}
+        }catch(NotFoundHttpException $e){return Redirect::to('/posts');}
     }
 
     public function update(Request $request, $id)

@@ -93,3 +93,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('users/all', 'UserController@all');
 Route::get('users/all/{id}/edit', 'UserController@allEdit');
 Route::resource('/users','UserController');
+Route::resource('/posts','PostController');
+Route::resource('/posts.comments','PostCommentController');
+Route::resource('/multimedia','MultimediaController');
+Route::resource('/multimedia.comments','MultimediaCommentController');

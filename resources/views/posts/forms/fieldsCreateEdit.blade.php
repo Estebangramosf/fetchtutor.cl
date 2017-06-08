@@ -25,7 +25,7 @@
         <img class="out-dashboard-item"
              src="{!! asset('img/glyphicons/glyphicons/png/glyphicons-12-camera.png') !!}" alt="">
         Buscar imagen ...
-        <input type="file" style="display: none;" name="image" id="image" maxlength="1000" size="2048" />
+        <input required="required" type="file" style="display: none;" name="image" id="image" maxlength="1000" size="2048" />
         <span id="imagePathValue"></span>
       </label>
     </div>

@@ -7,13 +7,13 @@
 
         <!-- Page Heading -->
         <div class="row">
-          <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <h1 class="page-header">
               Posts <small>Contenido público</small>
             </h1>
             <ol class="breadcrumb">
               <li class="active">
-                <i class="| fa-dashboard"></i> Posts
+                <i class="| fa-dashboard"></i> Lea, vea y comente, este es el listado de las publicaciones actuales. 
                 @if(Auth::check()&&Auth::user()->role!='user'&&Auth::user()->role!='admin')
                   ·
                   <a class="btn-link" href="{{url('/posts/create')}}">Nuevo post</a>
@@ -27,11 +27,11 @@
 
         <div class="row">
 
-          <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+          <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9">
             @include('alerts.allAlerts')
-          </div><!-- -->
+          </div><!-- /.col-* -->
 
-          <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+          <div class="col-xs-12 col-sm-12 col-md-8 col-lg-9">
 
             @foreach($posts as $key => $post)
               <div class="list-group">
@@ -39,6 +39,15 @@
                   <div class="row">
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" align="middle">
 
+                      <a href="{{url('/posts/'.$post->id)}}" class="thumbnail" style="padding:0px;">
+                        {{Html::image('/img/backgrounds/iconoCargando.gif',
+                          $alt="Photo", $attributes = array('style'=>
+                          'width:100%;height:100%;max-width:300px;max-height:300px;')) }}
+                        <div class="caption">
+                          Este post no tiene imagen.
+                        </div>
+                      </a>
+                      {{--
                       @foreach($post->image as $key => $image)
 
                           <a href="{{url('/posts/'.$post->id)}}" class="thumbnail" style="padding:0px;">
@@ -51,6 +60,7 @@
                           </a>
 
                       @endforeach
+                      
                       @if(count($post->image)==0)
                         <a href="{{url('/posts/'.$post->id)}}" class="thumbnail" style="padding:0px;">
                           {{Html::image('/img/backgrounds/iconoCargando.gif',
@@ -61,14 +71,16 @@
                           </div>
                         </a>
                       @endif
+                      --}}
 
-                    </div>
+                    </div><!-- .col-* -->
 
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
 
                       <div class="form-group has-feedback has-feedback-left">
                         <h3><a href="{{url('/posts/'.$post->id)}}">{{$post->title}}</a></h3>
-                      </div><!-- -->
+                      </div><!-- .form-group -->
+
                       <hr>
                       <div class="form-group has-feedback has-feedback-left">
                         <h4>
@@ -101,7 +113,7 @@
                           {!!strip_tags($post->body,'<ul><li><ol><img><a><p><span><strong><blockquote><b><pre><em><h1><h2><h3><h4><h5><h6><sup><sub><code>')!!}<!--etiquetas a las que escapa strip_tags-->
 
                         </h4>
-                      </div><!-- -->
+                      </div><!-- .form-group -->
 
                     </div><!-- .col-xs\sm\md\lg-8 -->
 
@@ -118,6 +130,7 @@
 
                   </div><!-- .row -->
                 </div><!-- .list-group-item -->
+
                 <div class="list-group-item">
                   <small>
                     Publicado por {{$post->user->name}}
@@ -125,11 +138,12 @@
                       <a href="{{url('/posts/'.$post->id)}}">{{$post->created_at}}</a>
                     </span>
                   </small>
-                </div>
+                </div><!-- .list-group-item -->
+
                 <div class="list-group-item">
                   Comentarios
                   <span style="float:right;">
-                    {{$count_comments = $post->comments->count()}}
+                    {{$count_comments = $post->post_comments->count()}}
                     @if($count_comments>0)
                       <a href="{{url('/posts/'.$post->id)}}">
                         · <small>Ver comentarios</small>
@@ -148,61 +162,24 @@
               @endif
             @endforeach
 
-            {{--
-            DEPRECATED *<25-12-2016
-            <div class="list-group">
-              <div class="list-group-item">
-                <h4>
-                  <a href="{{url('/posts')}}">Listado de Posts</a>
-                  <a href="{{url('/posts/create')}}" style="float:right;" class="btn btn-success">Crear nuevo post</a>
-                </h4>
-
-              </div>
-              <div class="list-group-item">
-                <table class="table">
-                  <thead>
-                  <th>Titulo</th>
-                  <th>Contenido</th>
-                  <th>Usuario</th>
-                  </thead>
-                  @foreach($posts as $post)
-                    <tbody>
-                    <td>{!!$post->title!!}</td>
-                    <td>{!!$post->body!!}</td>
-                    <td>{!!$post->user->name!!}</td>
-                    <td>
-                      {!!link_to_route('posts.edit', $title = 'Editar', $parameters = $post->id, $attributes = ['class'=>'btn btn-primary'])!!}
-                    </td>
-                    <td>
-                      {!!link_to_route('posts.show', $title = 'Ir a ver este post', $parameters = $post->id, $attributes = ['class'=>'btn btn-primary'])!!}
-                    </td>
-                    </tbody>
-                  @endforeach
-                </table><!-- -->
-          </div>
-        </div>
-            --}}
           {{$posts->render()}}
           </div><!-- -->
 
-          {{--
-          DEPRECATED 25-12-2016
           <div class="col-xs-12 col-sm-4 col-md-4 col-lg-3">
             <div class="list-group">
               <div class="list-group-item">
                 Espacio publicitario
-              </div><!-- -->
+              </div><!-- .list-group-item -->
               <div class="list-group-item">
                 Sugerencias, relateds, etc.
-              </div><!-- -->
-            </div><!-- -->
-          </div><!-- -->
-          --}}
+              </div><!-- .list-group-item -->
+            </div><!-- .list-group -->
+          </div><!-- .col-* -->
 
-        </div><!-- -->
+        </div><!-- .row -->
       </div><!-- -->
-    </div>
+    </div><!-- .container-fluid -->
 
-  </div><!-- -->
+  </div>
 @endsection
 
