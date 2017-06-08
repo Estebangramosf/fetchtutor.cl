@@ -85,9 +85,12 @@ Route::group(['middleware' => 'auth'], function () {
 */
 
 Auth::routes();
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+*/
+Route::resource('/', 'PaginaController');
 Route::get('/home', 'HomeController@index')->name('home');
 #Admin user routes
 Route::get('users/all', 'UserController@all');
@@ -97,3 +100,6 @@ Route::resource('/posts','PostController');
 Route::resource('/posts.comments','PostCommentController');
 Route::resource('/multimedia','MultimediaController');
 Route::resource('/multimedia.comments','MultimediaCommentController');
+
+
+#Rutas Migracion Francisco

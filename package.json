@@ -18,6 +18,7 @@
     "bootstrap-sass": "^3.0.0",
     "browserify": "^14.3.0",
     "cross-env": "^3.2.3",
+    "gulp": "^3.9.1",
     "jquery": "^3.1.1",
     "laravel-elixir": "^5.0.0",
     "laravel-elixir-browserify-official": "^0.1.3",
