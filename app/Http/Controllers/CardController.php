@@ -30,10 +30,10 @@ class CardController extends Controller
 
     public function getcartasbyid(Request $request){
         $nombrecarta = $request->nombrecarta;
-        //$jugadores = Jugadores::where('JGD_DCI', 'like', '%'.$dci.'%')->get();
+        //$jugadores = Player::where('JGD_DCI', 'like', '%'.$dci.'%')->get();
         $arraycartas = array();
         if($nombrecarta != ""){
-            $cartas = Cartas::where('CRT_NOMBRE', 'like', ''.$nombrecarta.'%')->get();
+            $cartas = Card::where('CRT_NOMBRE', 'like', ''.$nombrecarta.'%')->get();
             foreach($cartas as $c){
                         array_push($arraycartas, array( 'id' =>$c->CRT_ID,
                             'nombre' => "(".$c->EDN_COD_INTERNO.")".$c->CRT_NOMBRE) );
