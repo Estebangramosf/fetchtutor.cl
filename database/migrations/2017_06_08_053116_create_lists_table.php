@@ -14,7 +14,12 @@ class CreateListsTable extends Migration
     public function up()
     {
         Schema::create('lists', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('LST_ID');
+            $table->integer('LST_CANTIDAD');
+            $table->string('LST_NOMBRE_CARTA');
+            $table->integer('CRT_ID');
+            $table->integer('EVM_ID');
+            $table->integer('TCR_ID');
             $table->timestamps();
         });
     }

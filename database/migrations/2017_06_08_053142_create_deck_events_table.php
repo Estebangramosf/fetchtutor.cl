@@ -14,7 +14,12 @@ class CreateDeckEventsTable extends Migration
     public function up()
     {
         Schema::create('deck_events', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('EVM_ID');
+            $table->integer('EVN_ID');
+            $table->integer('JGD_ID');
+            $table->integer('MAZ_ID');
+            $table->string('EVM_NOMBRE_MAZO');
+            $table->string('EVM_POSICION');
             $table->timestamps();
         });
     }

@@ -14,7 +14,11 @@ class CreateEventsTable extends Migration
     public function up()
     {
         Schema::create('events', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('EVN_ID');
+            $table->string('EVN_NOMBRE');
+            $table->date('EVN_FECHA');
+            $table->integer('FTO_ID');
+            $table->integer('TND_ID');
             $table->timestamps();
         });
     }

@@ -14,7 +14,10 @@ class CreateStoresTable extends Migration
     public function up()
     {
         Schema::create('stores', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('TND_ID');
+            $table->string('TND_NOMBRE');
+            $table->string('TND_PROPIETARIO');
+            $table->string('TND_DIRECCION');
             $table->timestamps();
         });
     }

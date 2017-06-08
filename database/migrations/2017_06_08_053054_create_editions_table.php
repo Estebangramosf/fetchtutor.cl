@@ -14,7 +14,10 @@ class CreateEditionsTable extends Migration
     public function up()
     {
         Schema::create('editions', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('EDN_ID');
+            $table->string('EDN_NOMBRE');
+            $table->string('EDN_BLOQUE');
+            $table->string('EDN_COD_INTERNO');
             $table->timestamps();
         });
     }

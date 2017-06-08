@@ -14,7 +14,8 @@ class CreateCardTypesTable extends Migration
     public function up()
     {
         Schema::create('card_types', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('TCR_ID');
+            $table->string('TCR_NOMBRE');
             $table->timestamps();
         });
     }
