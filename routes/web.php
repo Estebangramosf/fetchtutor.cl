@@ -90,7 +90,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 */
-Route::resource('/', 'PaginaController');
+Route::resource('/', 'FrontController');
 Route::get('/home', 'HomeController@index')->name('home');
 #Admin user routes
 Route::get('users/all', 'UserController@all');
