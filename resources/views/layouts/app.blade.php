@@ -59,7 +59,7 @@
 
     <!-- Navigation -->
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation"
-             style="background-color: rgba(244, 249, 249, 0.85);border-bottom: 1px solid rgba(255, 255, 255, 0.3);">
+             style="background-color: #000;border-bottom: 1px solid rgba(255, 255, 255, 0.3);">
 
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -99,15 +99,13 @@
             <!-- navbar-brand title Image / Text -->
             <a class="navbar-brand" href="{{ url('/') }}">
                 <span style="color: #fffff9;">
-                    <span style="font-family: Coolvetica;font-size: 1.4em; text-transform: capitalize;
-                            text-shadow: 1px 1px 10px rgba(40, 41, 74, 0.67);"
+                    <span style="font-family: Lato;font-size: 1.4em; text-transform: capitalize;"
                             class="brand-heading">{{ucfirst('Fetch')}}
                     </span>
                 </span>
-                <span style="color: #b9deff;">
-                    <span style="font-family: Coolvetica;text-transform: capitalize;font-size: 1.4em;
-                            text-shadow: 1px 1px 10px rgba(40, 41, 74, 0.67);"
-                            class="brand-heading">{{ucfirst('Tutor')}}
+                <span>
+                    <span style="font-family: Lato;text-transform: capitalize;font-size: 1.4em;"
+                        class="brand-heading">{{ucfirst('Tutor')}}
                     </span>
                 </span>
             </a>
