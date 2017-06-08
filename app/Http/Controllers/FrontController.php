@@ -51,4 +51,11 @@ class FrontController extends Controller
     {
         //
     }
+    public function getFormato($id){
+
+
+        $mazos  = Deck::where('FTO_ID','=',$id)->orderBy('MAZ_NOMBRE','desc')->get();
+        $eventos = Event::where('FTO_ID','=',$id)->orderBy('EVN_ID','desc')->paginate(12);
+        return view('front.formato.formato', compact('eventos','mazos'));
+    }
 }
